@@ -796,75 +796,174 @@ footer a:hover {
 
 /* Media Queries */
 /* Estilos responsivos */
+
+/* Media Queries para diferentes breakpoints */
+
+/* Tablet - 768px */
 @media (max-width: 768px) {
+    /* Header y navegación */
+    .navbar {
+        padding: var(--spacing-sm);
+    }
+
+    .navbar nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: var(--background-color);
+        width: 80%;
+        height: 100vh;
+        padding: var(--spacing-lg);
+        transition: all var(--transition-speed) ease;
+    }
+
+    .navbar nav.responsive {
+        right: 0;
+    }
+
     .navbar nav ul {
         flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-lg);
     }
-    .icono-nav {
-        display: block;
+
+    /* Sección Inicio */
+    .inicio .contenido-banner {
+        width: 95%;
+        padding: var(--spacing-md);
+    }
+
+    .inicio .contenido-banner h1 {
+        font-size: 2.25rem;
+    }
+
+    /* Sección Sobre mí */
+    .sobremi .contenido-seccion {
+        padding: 0 var(--spacing-md);
+    }
+
+    /* Secciones de Skills y Hobbies */
+    .contenedor-skills .row,
+    .contenedor-hobbies .row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Sección Formación */
+    .contenedor-formacion .row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sección Proyectos */
+    .contenedor-proyectos .row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sección Contacto */
+    .contacto .contenedor-form .mitad {
+        flex-direction: column;
+        gap: var(--spacing-md);
     }
 }
-.navbar {
-    max-width: 1200px;
-    max-width: var(--max-width, 1200px);
+
+/* Tablet Grande/Desktop pequeño - 991px */
+@media (max-width: 991px) {
+    /* Header */
+    .navbar {
+        max-width: 90%;
+    }
+
+    /* Sección Inicio */
+    .inicio .contenido-banner {
+        max-width: 700px;
+    }
+
+    .inicio .contenido-banner h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Sección Skills y Hobbies */
+    .contenedor-skills,
+    .contenedor-hobbies {
+        width: 95%;
+    }
+
+    .contenedor-skills .row,
+    .contenedor-hobbies .row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    /* Sección Formación */
+    .contenedor-formacion .row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Sección Proyectos */
+    .contenedor-proyectos .row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .proyectos .bar .info-proyectos img {
+        height: 200px;
+    }
 }
+
+/* Desktop - 1199px */
+@media (max-width: 1199px) {
+    /* Header */
+    .navbar {
+        max-width: 95%;
+    }
+
+    /* Secciones generales */
+    .contenedor-skills,
+    .contenedor-hobbies,
+    .contenedor-formacion,
+    .contenedor-proyectos {
+        width: 95%;
+        max-width: 1100px;
+    }
+
+    /* Sección Skills y Hobbies */
+    .contenedor-skills .row,
+    .contenedor-hobbies .row {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    /* Sección Formación */
+    .contenedor-formacion .row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Sección Proyectos */
+    .contenedor-proyectos .row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Sección Contacto */
+    .contacto .contenedor-form {
+        width: 90%;
+    }
+}
+
+/* Ajustes adicionales para animaciones en dispositivos móviles */
 @media (prefers-reduced-motion: reduce) {
-    .theme-toggle {
+    .skills .bar,
+    .hobbies .bar,
+    .proyectos .bar {
+        animation: none;
+        transition: none;
+    }
+
+    .theme-toggle,
+    .contenedor-skills .bar:hover,
+    .contenedor-hobbies .bar:hover,
+    .proyectos .bar:hover {
+        transform: none;
         transition: none;
     }
 }
 
-@media (max-width: 480px) {
-    .inicio .contenido-banner h1 {
-        font-size: 2rem;
-    }
-    
-    .inicio .contenido-banner img {
-        max-width: 200px;
-    }
-}
+        
 
-@media (max-width: 768px) {
-    .sobremi h2 {
-        font-size: 1.875rem;
-    }
-    
-    .sobremi p {
-        font-size: 1rem;
-        padding: 0 var(--spacing-md);
-    }
-}
-@media (max-width: 480px) {
-    .skills h2 {
-        font-size: 2rem;
-    }
-    
-    .contenedor-skills .row {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-    
-    .skills .bar {
-        padding: var(--spacing-sm);
-    }
-}
-
-@media (max-width: 480px) {
-    .hobbies h2 {
-        font-size: 2rem;
-    }
-    
-    .contenedor-hobbies {
-        width: 95%;
-        padding: var(--spacing-sm);
-    }
-    
-    .hobbies .bar {
-        padding: var(--spacing-sm);
-    }
-    
-    .hobbies .bar .info img {
-        width: 40px;
-        height: 40px;
-    }
-}
