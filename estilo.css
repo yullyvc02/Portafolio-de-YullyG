@@ -176,11 +176,6 @@ header {
     object-fit: cover; 
 }
 
-:root.dark-mode .inicio .contenido-banner img {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 20px var(--shadow-color);
-}
-
 .inicio .contenido-banner h1 {
     margin-top: var(--spacing-lg);
     font-size: 2.625rem;
@@ -229,23 +224,6 @@ header {
 .sobremi .contenido-seccion {
     max-width: 800px;
     margin: auto;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.sobremi .contenido-seccion {
-    display: grid;
-    gap: var(--spacing-md);
-    grid-template-columns: 1fr;
-    align-items: start;
 }
 
 .sobremi h2 {
@@ -265,10 +243,6 @@ header {
     padding: 0 var(--spacing-lg);
 }
 
-.sobremi p::selection {
-    background: var(--primary-color);
-    color: var(--background-color);
-}
 
 /* Sección Skills */
 .skills {
@@ -314,36 +288,14 @@ header {
     flex-direction: column;
     align-items: center;
 }
-.skills .bar {
-    animation: fadeIn 0.5s ease forwards;
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .skills .bar .info img {
     width: 50px;
     height: 50px;
     margin-bottom: var(--spacing-sm);
     object-fit: contain;
-    loading: lazy;
-    background: var(--background-color);
 }
 
-.skills .bar:focus-within {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--primary-color);
-    transform: scale(1.05);
-}
 .skills .bar .info span {
     font-size: 1rem;
     color: var(--text-color);
@@ -357,49 +309,8 @@ header {
 }
 
 /* Sección Hobbies */
-
-:root {
-    --shadow-light: rgba(0, 0, 0, 0.1);
-}
-
-.hobbies .bar {
-    box-shadow: 0 4px 15px var(--shadow-light);
-}
 .hobbies {
     padding: var(--spacing-lg) 0;
-}
-
-.hobbies .bar {
-    animation: fadeInUp 0.5s ease forwards;
-    opacity: 0;
-}
-
-.hobbies .bar:nth-child(1) { animation-delay: 0.1s; }
-.hobbies .bar:nth-child(2) { animation-delay: 0.2s; }
-.hobbies .bar:nth-child(3) { animation-delay: 0.3s; }
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hobbies .bar {
-    position: relative;
-}
-
-.hobbies .bar:focus-within::after {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border: 2px solid var(--primary-color);
-    border-radius: calc(var(--border-radius-md) + 3px);
-    pointer-events: none;
 }
 
 .hobbies h2 {
@@ -462,13 +373,6 @@ header {
     box-shadow: 0 22px 30px var(--shadow-color);
 }
 
-:root.dark-mode .hobbies .bar {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-:root.dark-mode .hobbies .bar:hover {
-    box-shadow: 0 22px 30px var(--shadow-color);
-}
 
 
 /* Sección Formación */
@@ -796,8 +700,166 @@ footer a:hover {
 
 /* Media Queries */
 /* Estilos responsivos */
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        position: relative;
+        padding:var(--spacing-sm);
+        float: var(--spacing-sm);
+    }
 
-/* Media Queries para diferentes breakpoints */
+    /* Media query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .navbar nav {
+        display: none;
+       position: absolute;
+        z-index: 50%;
+    }
+
+    .navbar nav.mostrar {
+        display: block;
+        position:sticky;
+        
+
+    }
+
+    .controles-header {
+        flex-direction: row;
+        gap: var(--spacing-md);
+    }
+}
+
+    .navbar nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icono-nav {
+       display: block;
+       position:fixed;
+       top:30px;
+       right:2px;
+      
+      
+        
+        
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    
+    .inicio .contenido-banner h1 {
+        font-size: 2rem; /* Reducir tamaño en móviles */
+    }
+
+    .inicio .contenido-banner h2 {
+        font-size: 0.875rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sobremi p {
+        padding: 0 var(--spacing-md);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor-skills .row {
+        grid-template-columns: 1fr;
+    }
+
+    .skills h2 {
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .contenedor-hobbies .row {
+        grid-template-columns: 1fr;
+    }
+
+    .hobbies h2 {
+        font-size: 2rem;
+    }
+
+    .hobbies .bar {
+        padding: var(--spacing-sm);
+    }
+
+    .hobbies .bar .info img {
+        width: 40px;
+        height: 40px;
+    }
+}
+.hobbies .bar:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor-formacion .row {
+        grid-template-columns: 1fr;
+    }
+
+    .formacion h2 {
+        font-size: 2rem;
+    }
+
+    .formacion .bar {
+        padding: var(--spacing-sm);
+    }
+
+    .formacion .bar .info-formacion img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.formacion .bar:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Media queries para responsividad */
+@media screen and (max-width: 768px) {
+    .contenedor-proyectos .row {
+        grid-template-columns: 1fr;
+    }
+
+    .proyectos h2 {
+        font-size: 2rem;
+    }
+
+    .proyectos .bar {
+        padding: var(--spacing-sm);
+    }
+
+    .botones-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Mejoras de accesibilidad */
+.proyectos .bar:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Media queries para responsividad */
+@media screen and (max-width: 768px) {
+    .contacto .contenedor-form .mitad {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .contacto .btn-enviar {
+        width: 100%;
+    }
+}
+
+
 
 /* Tablet - 768px */
 @media (max-width: 768px) {
@@ -810,7 +872,7 @@ footer a:hover {
         position: fixed;
         top: 0;
         right: -100%;
-        background-color: var(--background-color);
+    
         width: 80%;
         height: 100vh;
         padding: var(--spacing-lg);
@@ -827,44 +889,7 @@ footer a:hover {
         gap: var(--spacing-lg);
     }
 
-    /* Sección Inicio */
-    .inicio .contenido-banner {
-        width: 95%;
-        padding: var(--spacing-md);
-    }
-
-    .inicio .contenido-banner h1 {
-        font-size: 2.25rem;
-    }
-
-    /* Sección Sobre mí */
-    .sobremi .contenido-seccion {
-        padding: 0 var(--spacing-md);
-    }
-
-    /* Secciones de Skills y Hobbies */
-    .contenedor-skills .row,
-    .contenedor-hobbies .row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Sección Formación */
-    .contenedor-formacion .row {
-        grid-template-columns: 1fr;
-    }
-
-    /* Sección Proyectos */
-    .contenedor-proyectos .row {
-        grid-template-columns: 1fr;
-    }
-
-    /* Sección Contacto */
-    .contacto .contenedor-form .mitad {
-        flex-direction: column;
-        gap: var(--spacing-md);
-    }
-}
-
+    
 /* Tablet Grande/Desktop pequeño - 991px */
 @media (max-width: 991px) {
     /* Header */
@@ -872,42 +897,7 @@ footer a:hover {
         max-width: 90%;
     }
 
-    /* Sección Inicio */
-    .inicio .contenido-banner {
-        max-width: 700px;
-    }
-
-    .inicio .contenido-banner h1 {
-        font-size: 2.5rem;
-    }
-
-    /* Sección Skills y Hobbies */
-    .contenedor-skills,
-    .contenedor-hobbies {
-        width: 95%;
-    }
-
-    .contenedor-skills .row,
-    .contenedor-hobbies .row {
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-md);
-    }
-
-    /* Sección Formación */
-    .contenedor-formacion .row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Sección Proyectos */
-    .contenedor-proyectos .row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .proyectos .bar .info-proyectos img {
-        height: 200px;
-    }
-}
-
+   
 /* Desktop - 1199px */
 @media (max-width: 1199px) {
     /* Header */
@@ -915,55 +905,8 @@ footer a:hover {
         max-width: 95%;
     }
 
-    /* Secciones generales */
-    .contenedor-skills,
-    .contenedor-hobbies,
-    .contenedor-formacion,
-    .contenedor-proyectos {
-        width: 95%;
-        max-width: 1100px;
-    }
-
-    /* Sección Skills y Hobbies */
-    .contenedor-skills .row,
-    .contenedor-hobbies .row {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--spacing-md);
-    }
-
-    /* Sección Formación */
-    .contenedor-formacion .row {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Sección Proyectos */
-    .contenedor-proyectos .row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Sección Contacto */
-    .contacto .contenedor-form {
-        width: 90%;
-    }
-}
-
-/* Ajustes adicionales para animaciones en dispositivos móviles */
-@media (prefers-reduced-motion: reduce) {
-    .skills .bar,
-    .hobbies .bar,
-    .proyectos .bar {
-        animation: none;
-        transition: none;
-    }
-
-    .theme-toggle,
-    .contenedor-skills .bar:hover,
-    .contenedor-hobbies .bar:hover,
-    .proyectos .bar:hover {
-        transform: none;
-        transition: none;
-    }
-}
+    
 
         
+
 
